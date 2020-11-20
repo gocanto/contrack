@@ -16,6 +16,7 @@ use Illuminate\Support\Collection;
  * @property Tenant|null tenant
  * @property int|null tenant_id
  * @property Visit[]|Collection visits
+ * @property int id
  */
 class Unit extends Model
 {
