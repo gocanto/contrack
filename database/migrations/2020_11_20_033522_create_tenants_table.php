@@ -6,19 +6,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateTenantsTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('users', static function (Blueprint $table) {
+        Schema::create('tenants', static function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('type');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('phone_number')->unique();
 
             $table->timestamps();
             $table->softDeletes();
@@ -27,6 +24,6 @@ class CreateUsersTable extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tenants');
     }
 }
