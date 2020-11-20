@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,6 +18,13 @@ use Illuminate\Support\Collection;
  * @property int|null tenant_id
  * @property Visit[]|Collection visits
  * @property int id
+ * @property string number
+ * @property string uuid
+ * @property Carbon created_at
+ * @property Carbon updated_at
+ * @property Carbon deleted_at
+ * @property Condominium condominium
+ * @property Block block
  */
 class Unit extends Model
 {
@@ -66,5 +74,10 @@ class Unit extends Model
             ->whereNotNull('arrived_at')
             ->whereNull('left_at')
             ->get();
+    }
+
+    public function isRented(): bool
+    {
+        return $this->tenant_id !== null;
     }
 }
