@@ -1,14 +1,14 @@
 {
-    "name": "laravel/laravel",
+    "name": "gocanto/contrack",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Visitors management.",
     "keywords": [
-        "framework",
-        "laravel"
+        "vistors",
+        "management"
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.4",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-master",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.2",
