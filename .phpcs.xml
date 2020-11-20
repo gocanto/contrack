@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="BeMyGuest PHPMD ruleset">
+    <description> BeMyGuest PHP coding ruleset </description>
+
+    <rule ref="PSR2" />
+    <rule ref="PSR1.Methods.CamelCapsMethodName">
+        <exclude-pattern>*/Models/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Classes.ValidClassName">
+        <exclude-pattern>*/DbViews/*</exclude-pattern>
+    </rule>
+
+
+</ruleset>
