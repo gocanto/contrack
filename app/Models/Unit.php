@@ -25,6 +25,7 @@ use Illuminate\Support\Collection;
  * @property Carbon deleted_at
  * @property Condominium condominium
  * @property Block block
+ * @method static create(array $attributes)
  */
 class Unit extends Model
 {
