@@ -26,6 +26,13 @@ class UnitRepository
         return Unit::create($this->getAttributes($data));
     }
 
+    public function update(Unit $unit, array $data): Unit
+    {
+        $unit->update($this->getAttributes($data));
+
+        return $unit->fresh();
+    }
+
     public function all(?int $limit = 20): Collection
     {
         return $this->getBuilder()->take($limit)->get();
