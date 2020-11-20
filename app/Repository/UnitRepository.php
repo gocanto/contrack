@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Repository;
 
 use App\Models\Unit;
+use Exception;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
@@ -31,6 +32,14 @@ class UnitRepository
         $unit->update($this->getAttributes($data));
 
         return $unit->fresh();
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function delete(Unit $unit): void
+    {
+        $unit->delete();
     }
 
     public function all(?int $limit = 20): Collection
