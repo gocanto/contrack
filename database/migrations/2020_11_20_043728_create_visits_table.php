@@ -18,11 +18,12 @@ class CreateVisitsTable extends Migration
             $table->string('phone_number');
             $table->string('nric_last_r');
 
+            $table->foreignId('condominium_id')->constrained('condominiums');
             $table->foreignId('unit_id')->constrained('units');
             $table->foreignId('block_id')->constrained('blocks');
 
-            $table->dateTime('arrived_at');
-            $table->dateTime('left_at');
+            $table->dateTime('arrived_at')->nullable();
+            $table->dateTime('left_at')->nullable();
 
             $table->timestamps();
         });

@@ -17,7 +17,7 @@ class CreateUnitsTable extends Migration
 
             $table->foreignId('condominium_id')->constrained('condominiums');
             $table->foreignId('block_id')->constrained('blocks');
-            $table->foreignId('tenant_id')->constrained('tenants');
+            $table->foreignId('tenant_id')->nullable()->constrained('tenants');
 
             $table->timestamps();
             $table->softDeletes();

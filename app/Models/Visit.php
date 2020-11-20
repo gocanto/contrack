@@ -11,6 +11,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Visit extends Model
 {
     use HasFactory;
+    use HasUuid;
+
+    protected $fillable = [
+        'uuid',
+        'visitor_first_name',
+        'visitor_last_name',
+        'phone_number',
+        'nric_last_r',
+        'unit_id',
+        'block_id',
+    ];
+
+    protected $dates = ['created_at', 'updated_at', 'deleted_at', 'arrived_at', 'left_at'];
 
     public function unit(): BelongsTo
     {
