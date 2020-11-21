@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Units;
 
 use App\Http\Requests\UnitsRequest;
 use App\Repository\UnitRepository;

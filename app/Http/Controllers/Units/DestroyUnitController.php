@@ -2,20 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Units;
 
 use App\Repository\UnitRepository;
-use App\Transformer\UnitTransformer;
 use Illuminate\Http\JsonResponse;
 
-final class ShowUnitController
+final class DestroyUnitController
 {
-    private UnitTransformer $transformer;
     private UnitRepository $units;
 
-    public function __construct(UnitRepository $units, UnitTransformer $transformer)
+    public function __construct(UnitRepository $units)
     {
-        $this->transformer = $transformer;
         $this->units = $units;
     }
 
@@ -27,9 +24,8 @@ final class ShowUnitController
             return new JsonResponse("The given unit [{$uuid}] is invalid", JsonResponse::HTTP_NOT_FOUND);
         }
 
-        return new JsonResponse(
-            $this->transformer->transform($unit),
-            JsonResponse::HTTP_OK
-        );
+        $this->units->delete($unit);
+
+        return new JsonResponse();
     }
 }
