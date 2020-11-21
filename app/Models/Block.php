@@ -38,4 +38,16 @@ class Block extends Model
     {
         return $this->hasMany(Unit::class);
     }
+
+    public function hasUnit(Unit $unit): bool
+    {
+        return $this->units
+            ->where('id', $unit->id)
+            ->isNotEmpty();
+    }
+
+    public function doestNotHave(Unit $unit): bool
+    {
+        return !$this->hasUnit($unit);
+    }
 }

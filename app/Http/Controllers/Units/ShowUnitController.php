@@ -28,7 +28,7 @@ final class ShowUnitController
         }
 
         return new JsonResponse(
-            $this->transformer->transform($unit),
+            $this->transformer->transformWithVisits($unit),
             JsonResponse::HTTP_OK
         );
     }

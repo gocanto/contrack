@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Units;
 use App\Http\Controllers\Tenants;
+use App\Http\Controllers\Visits;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,9 @@ Route::post('tenants', Tenants\StoreTenantController::class);
 Route::get('tenants/{uuid}', Tenants\ShowTenantController::class);
 Route::put('tenants/{uuid}', Tenants\UpdateTenantController::class);
 Route::delete('tenants/{uuid}', Tenants\DestroyTenantController::class);
+
+// --- Visits
+Route::get('visits', Visits\AllVisitsController::class);
+Route::post('visits', Visits\StoreVisitController::class);
+Route::get('visits/{uuid}', Visits\ShowVisitController::class);
+Route::put('visits/{uuid}/update-capacity', Tenants\UpdateTenantController::class);

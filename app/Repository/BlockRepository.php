@@ -14,6 +14,11 @@ class BlockRepository
         return $this->getBuilder()->where('uuid', $uuid)->first();
     }
 
+    public function findByNumber(string $number): ?Block
+    {
+        return $this->getBuilder()->where('number', $number)->first();
+    }
+
     public function getBuilder(): Builder
     {
         return Block::query();

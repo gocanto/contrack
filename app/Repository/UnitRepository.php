@@ -45,12 +45,17 @@ class UnitRepository
 
     public function all(?int $limit = 20): Collection
     {
-        return $this->getBuilder()->take($limit)->get();
+        return $this->getBuilder()->take($limit ?? 50)->get();
     }
 
     public function findByUuid(string $uuid): ?Unit
     {
         return $this->getBuilder()->where('uuid', $uuid)->first();
+    }
+
+    public function findByNumber(string $number): ?Unit
+    {
+        return $this->getBuilder()->where('number', $number)->first();
     }
 
     public function markAsRented(Unit $unit, Tenant $tenant): Unit
