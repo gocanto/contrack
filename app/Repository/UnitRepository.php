@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Models\Tenant;
 use App\Models\Unit;
 use Exception;
 use Illuminate\Database\Eloquent\Builder;
@@ -52,7 +53,22 @@ class UnitRepository
         return $this->getBuilder()->where('uuid', $uuid)->first();
     }
 
-    public function getBuilder(): Builder
+    public function markAsRented(Unit $unit, Tenant $tenant): Unit
+    {
+        $unit->rent($tenant);
+
+        return $unit->fresh();
+    }
+
+    public function markAsAvailable(Unit $unit): Unit
+    {
+        $unit->tenant_id = null;
+        $unit->save();
+
+        return $unit->fresh();
+    }
+
+    private function getBuilder(): Builder
     {
         return Unit::with('condominium', 'block', 'tenant');
     }
