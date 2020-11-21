@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Transformer;
 
 use App\Models\Tenant;
+use Illuminate\Support\Collection;
 
 class TenantTransformer
 {
@@ -18,5 +19,10 @@ class TenantTransformer
             'created_at' => $item->created_at,
             'updated_at' => $item->updated_at,
         ];
+    }
+
+    public function collection(Collection $units): Collection
+    {
+        return $units->map(fn (Tenant $tenant) => $this->transform($tenant));
     }
 }

@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property Carbon created_at
  * @property Carbon updated_at
  * @property Carbon deleted_at
+ * @method static create(array $getAttributes)
  */
 class Tenant extends Model
 {

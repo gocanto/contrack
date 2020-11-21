@@ -14,7 +14,7 @@ class UnitsRequest extends FormRequest
         $number = Rule::unique('units');
 
         if ($this->route('uuid') !== null) { //editing
-            $number->ignore($this->input('number'), 'number');
+            $number->ignore($this->input('uuid'), 'uuid');
         }
 
         return [

@@ -9,7 +9,7 @@ use App\Repository\UnitRepository;
 use App\Transformer\UnitTransformer;
 use Illuminate\Http\JsonResponse;
 
-final class CreateUnitController
+final class StoreUnitController
 {
     private UnitTransformer $transformer;
     private UnitRepository $units;
