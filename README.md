@@ -100,3 +100,47 @@ PUT: http://contrack.local/api/tenants/cc40510e-24df-4d71-9436-93ddc07e1e4b
 ```
 DELETE: http://contrack.local/api/tenants/8e2b29a0-7e7c-4e32-9d87-f6aca933517d
 ```
+
+## Units Resources
+###### All
+```
+GET: http://contrack.local/api/units
+```
+###### Create
+```
+POST: http://contrack.local/api/units
+
+{
+    "condominium_uuid": "772902d6-1416-4dd6-b9f6-7ac4d069e6b6",
+    "block_uuid": "fd30ab26-da72-448c-977e-79dca4de51dc",
+    "number": "test-03"
+}
+```
+###### Show
+```
+GET: http://contrack.local/api/units/79d4cc00-ef87-481f-919c-50a2b843c4bf
+```
+###### Update
+```
+PUT: http://contrack.local/api/units/171752b1-9dce-4518-9c95-84892b345fdf
+{
+    "condominium_uuid": "772902d6-1416-4dd6-b9f6-7ac4d069e6b6",
+    "block_uuid": "fd30ab26-da72-448c-977e-79dca4de51dc",
+    "number": "test-03"
+}
+```
+###### Remove
+```
+DELETE: http://contrack.local/api/units/ee37599f-2833-45ea-89de-c68337036751
+```
+###### Mark As Rented
+```
+POST: http://contrack.local/api/manage-unit/mark-as-rented/a1534b19-557a-49ab-9d05-7a975b75828a
+{
+    "tenant_uuid": "73c97fa0-7f4d-4c83-bf39-3dd9ead537cf"
+}
+```
+###### Mark As Available
+```
+POST: http://contrack.local/api/manage-unit/mark-as-available/a1534b19-557a-49ab-9d05-7a975b75828a
+```
