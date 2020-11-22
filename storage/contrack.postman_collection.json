@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "ba24d1b1-c1a8-4873-8e75-869117b100e1",
+		"name": "contrack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tenants",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://contrack.local/api/tenants",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"tenants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Gustavo\",\n    \"last_name\": \"Ocanto\",\n    \"phone_number\": \"+6582929267\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/tenants",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"tenants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://contrack.local/api/tenants/8e2b29a0-7e7c-4e32-9d87-f6aca933517d",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"tenants",
+								"8e2b29a0-7e7c-4e32-9d87-f6aca933517d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://contrack.local/api/tenants/66fb54d9-b8e1-4ead-8ad7-6c7217cb1ef1",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"tenants",
+								"66fb54d9-b8e1-4ead-8ad7-6c7217cb1ef1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Gus\",\n    \"last_name\": \"Oca\",\n    \"phone_number\": \"+6582929267\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/tenants/cc40510e-24df-4d71-9436-93ddc07e1e4b",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"tenants",
+								"cc40510e-24df-4d71-9436-93ddc07e1e4b"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Units",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://contrack.local/api/units",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"units"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://contrack.local/api/units/79d4cc00-ef87-481f-919c-50a2b843c4bf",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"units",
+								"79d4cc00-ef87-481f-919c-50a2b843c4bf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://contrack.local/api/units/ee37599f-2833-45ea-89de-c68337036751",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"units",
+								"ee37599f-2833-45ea-89de-c68337036751"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"condominium_uuid\": \"772902d6-1416-4dd6-b9f6-7ac4d069e6b6\",\n    \"block_uuid\": \"fd30ab26-da72-448c-977e-79dca4de51dc\",\n    \"number\": \"test-03\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/units/171752b1-9dce-4518-9c95-84892b345fdf",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"units",
+								"171752b1-9dce-4518-9c95-84892b345fdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"condominium_uuid\": \"772902d6-1416-4dd6-b9f6-7ac4d069e6b6\",\n    \"block_uuid\": \"fd30ab26-da72-448c-977e-79dca4de51dc\",\n    \"number\": \"test-03\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/units",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"units"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mark-as-rented",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tenant_uuid\": \"73c97fa0-7f4d-4c83-bf39-3dd9ead537cf\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/manage-unit/mark-as-rented/a1534b19-557a-49ab-9d05-7a975b75828a",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"manage-unit",
+								"mark-as-rented",
+								"a1534b19-557a-49ab-9d05-7a975b75828a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mark-as-available",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tenant_uuid\": \"26650b90-1f06-4ae5-a0e8-5be467a70e41\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/manage-unit/mark-as-available/a1534b19-557a-49ab-9d05-7a975b75828a",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"manage-unit",
+								"mark-as-available",
+								"a1534b19-557a-49ab-9d05-7a975b75828a"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Visits",
+			"item": [
+				{
+					"name": "index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone_number\": \"1-854-676-8073 x6555\",\n    \"limit\": 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/visits",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"visits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/visits/a646cc33-8c96-4f1c-880e-001b93cd1afe",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"visits",
+								"a646cc33-8c96-4f1c-880e-001b93cd1afe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"condominium_uuid\": \"bc735190-fa5c-402e-a73b-23da77a9b6de\",\n    \"block_uuid\": \"181eb797-7ee7-4bc2-904d-2c9a1b3e9f34\",\n    \"number\": \"06-02-01\",\n    \"visitor_first_name\": \"Gus\",\n    \"visitor_last_name\": \"Ocan\",\n    \"phone_number\": \"12345\",\n    \"nric_last_r\": \"12ddfgdd\",\n    \"block_number\": \"02\",\n    \"unit_number\": \"06-02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/visits",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"visits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-capacity",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nric_last_four\": \"12ddfgdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://contrack.local/api/visits/15715f0d-94df-46b2-86cf-81079f1d8554/update-capacity",
+							"protocol": "http",
+							"host": [
+								"contrack",
+								"local"
+							],
+							"path": [
+								"api",
+								"visits",
+								"15715f0d-94df-46b2-86cf-81079f1d8554",
+								"update-capacity"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
