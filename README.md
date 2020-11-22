@@ -68,6 +68,10 @@ For a better understanding of the models relations, you can click the following 
 +--------+----------+------------------------------------------+------+-----------------------------------------------------------------+------------+
 ```
 
+## Postman Collection
+You will be able to import the given [postman collection](https://github.com/gocanto/contrack/blob/main/storage/contrack.postman_collection.json) to start testing the API. Otherwise, you can follow the bellow
+steps.
+
 ## Tenants Resources
 ###### All
 ```
@@ -178,3 +182,23 @@ POST: http://contrack.local/api/visits
 ```
 PUT: http://contrack.local/api/visits/15715f0d-94df-46b2-86cf-81079f1d8554/update-capacity
 ```
+
+
+## Contributing
+
+Please feel free to fork this package and contribute by submitting a pull request to enhance its functionality.
+
+## License
+
+The MIT License (MIT). Please see [License File](https://github.com/gocanto/contrack/blob/main/LICENSE) for more information.
+
+
+## How can I thank you?
+Why not star the github repo and share the link for this repository on Twitter?
+
+
+Don't forget to [follow me on twitter](https://twitter.com/gocanto)!
+
+Thanks!
+
+Gustavo Ocanto.
