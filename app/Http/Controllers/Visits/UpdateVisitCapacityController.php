@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Visits;
 
-use App\Http\Requests\VisitsRequest;
 use App\Repository\VisitRepository;
 use App\Transformer\VisitTransformer;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
-final class StoreVisitController
+final class UpdateVisitCapacityController
 {
     private VisitRepository $visits;
     private VisitTransformer $transformer;
@@ -20,22 +20,22 @@ final class StoreVisitController
         $this->transformer = $transformer;
     }
 
-    public function __invoke(VisitsRequest $request): JsonResponse
+    public function __invoke(Request $request, string $uuid): JsonResponse
     {
-        $unit = $request->getUnit();
+        $visit = $this->visits->findByNricAndUuid(
+            $request->input('nric_last_four', ''),
+            $uuid
+        );
 
-        if ($unit->getCurrentVisitors()->count() > 5) {
-            return new JsonResponse(
-                'The given unit [' . $unit->number . '] has reached its max capacity.',
-                JsonResponse::HTTP_FORBIDDEN
-            );
+        if ($visit === null) {
+            return new JsonResponse('The the given nric number is invalid.', JsonResponse::HTTP_NOT_FOUND);
         }
 
-        $visit = $this->visits->create($request->getBlock(), $unit, $request->getData());
+        $visit = $this->visits->updateCapacity($visit);
 
         return new JsonResponse(
             $this->transformer->transform($visit),
-            JsonResponse::HTTP_CREATED
+            JsonResponse::HTTP_OK
         );
     }
 }

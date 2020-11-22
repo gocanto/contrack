@@ -59,6 +59,19 @@ class VisitRepository
             ->exists();
     }
 
+    public function findByNricAndUuid(string $number, string $uuid): ?Visit
+    {
+        return $this->getBuilder()->where('nric_last_r', $number)->where('uuid', $uuid)->first();
+    }
+
+    public function updateCapacity(Visit $visit): Visit
+    {
+        $visit->left_at = CarbonImmutable::now();
+        $visit->save();
+
+        return $visit->fresh();
+    }
+
     private function getBuilder(): Builder
     {
         return Visit::with('condominium', 'block', 'unit');

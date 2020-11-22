@@ -32,4 +32,4 @@ Route::delete('tenants/{uuid}', Tenants\DestroyTenantController::class);
 Route::get('visits', Visits\AllVisitsController::class);
 Route::post('visits', Visits\StoreVisitController::class);
 Route::get('visits/{uuid}', Visits\ShowVisitController::class);
-Route::put('visits/{uuid}/update-capacity', Tenants\UpdateTenantController::class);
+Route::put('visits/{uuid}/update-capacity', Visits\UpdateVisitCapacityController::class);

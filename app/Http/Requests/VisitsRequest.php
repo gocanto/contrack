@@ -52,7 +52,7 @@ class VisitsRequest extends FormRequest
                 return;
             }
 
-            if ($block->doestNotHave($unit)) {
+            if ($block->doestNotHaveUnit($unit)) {
                 $validator->errors()->add(
                     'unit',
                     'The given unit: ' . $unit->number . ' does not belong to the given block: ' . $block->number . '.'

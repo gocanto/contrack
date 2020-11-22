@@ -51,8 +51,7 @@ class Block extends Model
             ->isNotEmpty();
     }
 
-    //remove
-    public function doestNotHave(Unit $unit): bool
+    public function doestNotHaveUnit(Unit $unit): bool
     {
         return !$this->hasUnit($unit);
     }
