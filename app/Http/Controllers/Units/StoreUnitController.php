@@ -22,7 +22,11 @@ final class StoreUnitController
 
     public function __invoke(UnitsRequest $request): JsonResponse
     {
-        $unit = $this->units->create($request->getData());
+        $unit = $this->units->create([
+            'condominium_id' => $request->condominium->id,
+            'number' => $request->input('number'),
+            'block_id' => $request->block->id,
+        ]);
 
         $data = $this->transformer->transform($unit);
 

@@ -22,13 +22,10 @@ final class UpdateUnitController
 
     public function __invoke(UnitsRequest $request, string $uuid): JsonResponse
     {
-        $unit = $this->units->findByUuid($uuid);
-
-        if ($unit === null) {
-            return new JsonResponse("The given unit [{$uuid}] is invalid", JsonResponse::HTTP_NOT_FOUND);
-        }
-
-        $unit = $this->units->update($unit, $request->getData());
+        $unit = $this->units->update(
+            $request->unit,
+            $request->getData()
+        );
 
         return new JsonResponse(
             $this->transformer->transform($unit),

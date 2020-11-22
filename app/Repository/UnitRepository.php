@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
+use App\Models\Block;
+use App\Models\Condominium;
 use App\Models\Tenant;
 use App\Models\Unit;
 use Exception;
@@ -12,25 +14,14 @@ use Illuminate\Support\Collection;
 
 class UnitRepository
 {
-    private CondominiumRepository $condominium;
-    private BlockRepository $block;
-    private TenantRepository $tenant;
-
-    public function __construct(CondominiumRepository $condominium, BlockRepository $block, TenantRepository $tenant)
-    {
-        $this->condominium = $condominium;
-        $this->block = $block;
-        $this->tenant = $tenant;
-    }
-
     public function create(array $data): Unit
     {
-        return Unit::create($this->getAttributes($data));
+        return Unit::create($data);
     }
 
     public function update(Unit $unit, array $data): Unit
     {
-        $unit->update($this->getAttributes($data));
+        $unit->update($data);
 
         return $unit->fresh();
     }
@@ -46,6 +37,18 @@ class UnitRepository
     public function all(?int $limit = 20): Collection
     {
         return $this->getBuilder()->take($limit ?? 50)->get();
+    }
+
+    public function findBy(Condominium $condominium, Block $block, string $uuid): ?Unit
+    {
+        /** @var Unit $unit */
+        $unit = $this->getBuilder()
+            ->where('condominium_id', $condominium->id)
+            ->where('block_id', $block->id)
+            ->where('uuid', 'like', $uuid)
+            ->first();
+
+        return $unit;
     }
 
     public function findByUuid(string $uuid): ?Unit
@@ -76,22 +79,5 @@ class UnitRepository
     private function getBuilder(): Builder
     {
         return Unit::with('condominium', 'block', 'tenant');
-    }
-
-    private function getAttributes(array $data): array
-    {
-        $condominium = $this->condominium->findByUuid($data['condominium_uuid']);
-        $block = $this->block->findByUuid($data['block_uuid']);
-
-        $tenant = isset($data['tenant_uuid'])
-            ? $this->tenant->findByUuid($data['tenant_uuid'])
-            : null;
-
-        return [
-            'block_id' => $block->id,
-            'number' => $data['number'],
-            'condominium_id' => $condominium->id,
-            'tenant_id' => $tenant ? $tenant->id : null,
-        ];
     }
 }

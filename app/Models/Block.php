@@ -39,6 +39,11 @@ class Block extends Model
         return $this->hasMany(Unit::class);
     }
 
+    public function hasUnitNumber(string $number): bool
+    {
+        return $this->units()->where('number', $number)->exists();
+    }
+
     public function hasUnit(Unit $unit): bool
     {
         return $this->units
@@ -46,6 +51,7 @@ class Block extends Model
             ->isNotEmpty();
     }
 
+    //remove
     public function doestNotHave(Unit $unit): bool
     {
         return !$this->hasUnit($unit);

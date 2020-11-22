@@ -22,6 +22,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Augusto Malave Villalba',
         ]);
 
+        Block::factory()->create([
+            'condominium_id' => $condominium->id,
+            'number' => '01',
+        ]);
+
         /** @var Block $block */
         $block = Block::factory()->create([
             'condominium_id' => $condominium->id,
@@ -32,6 +37,12 @@ class DatabaseSeeder extends Seeder
         $tenant = Tenant::factory()->create([
             'first_name' => 'Gustavo',
             'last_name' => 'Ocanto',
+        ]);
+
+        Unit::factory()->create([
+            'number' => '06-01',
+            'block_id' => $block->id,
+            'condominium_id' => $condominium->id,
         ]);
 
         /** @var Unit $unit */

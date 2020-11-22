@@ -32,4 +32,9 @@ class Condominium extends Model
     {
         return $this->hasMany(Block::class);
     }
+
+    public function hasBlock(Block $block): bool
+    {
+        return $this->blocks()->where('id', $block->id)->exists();
+    }
 }
