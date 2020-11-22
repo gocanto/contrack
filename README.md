@@ -144,3 +144,37 @@ POST: http://contrack.local/api/manage-unit/mark-as-rented/a1534b19-557a-49ab-9d
 ```
 POST: http://contrack.local/api/manage-unit/mark-as-available/a1534b19-557a-49ab-9d05-7a975b75828a
 ```
+
+## Visitors Resources
+###### All
+```
+GET: http://contrack.local/api/visits
+NOTES: The phone number and limit are optionals and allow for filtering the visitors list.
+{
+    "phone_number": "1-854-676-8073 x6555",
+    "limit": 50
+}
+```
+###### Show
+```
+GET: http://contrack.local/api/visits/a646cc33-8c96-4f1c-880e-001b93cd1afe
+```
+###### Create
+```
+POST: http://contrack.local/api/visits
+{
+    "condominium_uuid": "bc735190-fa5c-402e-a73b-23da77a9b6de",
+    "block_uuid": "181eb797-7ee7-4bc2-904d-2c9a1b3e9f34",
+    "number": "06-02-01",
+    "visitor_first_name": "Gus",
+    "visitor_last_name": "Ocan",
+    "phone_number": "12345",
+    "nric_last_r": "12ddfgdd",
+    "block_number": "02",
+    "unit_number": "06-02"
+}
+```
+###### Update Capacity
+```
+PUT: http://contrack.local/api/visits/15715f0d-94df-46b2-86cf-81079f1d8554/update-capacity
+```
