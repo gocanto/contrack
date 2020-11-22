@@ -41,6 +41,8 @@ class Visit extends Model
         'unit_id',
         'block_id',
         'condominium_id',
+        'arrived_at',
+        'left_at',
     ];
 
     protected $dates = ['created_at', 'updated_at', 'arrived_at', 'left_at'];
