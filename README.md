@@ -67,3 +67,36 @@ For a better understanding of the models relations, you can click the following 
 |        | PUT      | api/visits/{uuid}/update-capacity        |      | App\Http\Controllers\Visits\UpdateVisitCapacityController       | api        |
 +--------+----------+------------------------------------------+------+-----------------------------------------------------------------+------------+
 ```
+
+## Tenants Resources
+###### All
+```
+GET: http://contrack.local/api/tenants
+```
+###### Create
+```
+POST: http://contrack.local/api/tenants
+
+{
+    "first_name": "Gustavo",
+    "last_name": "Ocanto",
+    "phone_number": "+6582929875"
+}
+```
+###### Show
+```
+GET: http://contrack.local/api/tenants/66fb54d9-b8e1-4ead-8ad7-6c7217cb1ef1
+```
+###### Update
+```
+PUT: http://contrack.local/api/tenants/cc40510e-24df-4d71-9436-93ddc07e1e4b
+{
+    "first_name": "Gus",
+    "last_name": "Oca",
+    "phone_number": "+658292898987"
+}
+```
+###### Remove
+```
+DELETE: http://contrack.local/api/tenants/8e2b29a0-7e7c-4e32-9d87-f6aca933517d
+```
